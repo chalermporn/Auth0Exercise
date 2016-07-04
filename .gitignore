@@ -3,7 +3,7 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ##Custom
-PrivateKeys.h
+Auth0Login/Auth0Login/PrivateKeys.h
 
 ## Build generated
 build/
