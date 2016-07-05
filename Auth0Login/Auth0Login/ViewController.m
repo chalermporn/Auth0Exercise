@@ -9,6 +9,16 @@
 #import "ViewController.h"
 
 @interface ViewController () <UIWebViewDelegate>
+@property (strong, nonatomic) IBOutlet UIView *headerContainer;
+@property (strong, nonatomic) IBOutlet UIImageView *headerImage;
+@property (strong, nonatomic) IBOutlet UILabel *headerText;
+@property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *passwordLabel;
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIButton *sendButton;
+@property (strong, nonatomic) IBOutlet UIView *footerLine;
+@property (strong, nonatomic) IBOutlet UIButton *footerButton;
 
 @end
 
@@ -37,6 +47,12 @@
             NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
         }] resume];
     }}
+}
+
+- (IBAction)sendButtonTapped:(id)sender {
+}
+
+- (IBAction)footerButtonTapped:(id)sender {
 }
 
 @end

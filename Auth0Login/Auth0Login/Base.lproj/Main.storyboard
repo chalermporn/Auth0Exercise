@@ -26,21 +26,31 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jZ-1t-9FO">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Auth0Badge" translatesAutoresizingMaskIntoConstraints="NO" id="6jZ-1t-9FO">
                                         <rect key="frame" x="50" y="12" width="50" height="56"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="09a-Wf-tNG"/>
-                                            <constraint firstAttribute="height" constant="56" id="Q6x-c4-IXu"/>
+                                            <constraint firstAttribute="width" constant="50" id="09a-Wf-tNG">
+                                                <variation key="widthClass=compact" constant="38"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="56" id="Q6x-c4-IXu">
+                                                <variation key="widthClass=compact" constant="42"/>
+                                            </constraint>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0Cf-xY-KCU"/>
-                                    <constraint firstItem="Ly6-Yw-7az" firstAttribute="centerY" secondItem="sA7-NB-dal" secondAttribute="centerY" id="0ZK-yC-ttu"/>
-                                    <constraint firstItem="Ly6-Yw-7az" firstAttribute="top" secondItem="sA7-NB-dal" secondAttribute="top" id="0ea-m4-e2z"/>
+                                    <constraint firstItem="Ly6-Yw-7az" firstAttribute="centerY" secondItem="sA7-NB-dal" secondAttribute="centerY" id="0ZK-yC-ttu">
+                                        <variation key="widthClass=compact" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="Ly6-Yw-7az" firstAttribute="top" secondItem="sA7-NB-dal" secondAttribute="top" id="0ea-m4-e2z">
+                                        <variation key="widthClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstItem="6jZ-1t-9FO" firstAttribute="leading" secondItem="sA7-NB-dal" secondAttribute="leading" constant="50" id="0ip-8M-D1c"/>
-                                    <constraint firstItem="6jZ-1t-9FO" firstAttribute="centerY" secondItem="sA7-NB-dal" secondAttribute="centerY" id="CYG-Jc-hGY"/>
+                                    <constraint firstItem="6jZ-1t-9FO" firstAttribute="centerY" secondItem="sA7-NB-dal" secondAttribute="centerY" id="CYG-Jc-hGY">
+                                        <variation key="widthClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="Ly6-Yw-7az" secondAttribute="trailing" constant="24" id="G5Z-IX-Hbi"/>
                                     <constraint firstItem="Ly6-Yw-7az" firstAttribute="leading" secondItem="6jZ-1t-9FO" secondAttribute="trailing" constant="24" id="Uvj-bG-ACc"/>
                                     <constraint firstAttribute="bottom" secondItem="Ly6-Yw-7az" secondAttribute="bottom" id="t9y-VR-ded"/>
@@ -53,6 +63,7 @@
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
+                                        <exclude reference="0ZK-yC-ttu"/>
                                         <include reference="0ea-m4-e2z"/>
                                         <include reference="t9y-VR-ded"/>
                                     </mask>
@@ -103,12 +114,18 @@
                                         <include reference="DmB-hh-OTb"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BNj-cL-nnl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ik-fl-HDZ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="footerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dkd-Zd-82d"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxV-Cu-CK3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -156,7 +173,9 @@
                             </constraint>
                             <constraint firstItem="WxV-Cu-CK3" firstAttribute="leading" secondItem="yX6-gU-hhX" secondAttribute="leading" id="m6d-cW-DSh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1Ik-fl-HDZ" secondAttribute="bottom" constant="20" id="sbx-Wk-vUs"/>
-                            <constraint firstItem="nUh-uE-Ues" firstAttribute="top" secondItem="sA7-NB-dal" secondAttribute="bottom" constant="32" id="uJX-5n-S8W"/>
+                            <constraint firstItem="nUh-uE-Ues" firstAttribute="top" secondItem="sA7-NB-dal" secondAttribute="bottom" constant="32" id="uJX-5n-S8W">
+                                <variation key="widthClass=compact" constant="24"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="WxV-Cu-CK3" secondAttribute="trailing" id="yZ3-ft-gg1"/>
                         </constraints>
                         <variation key="default">
@@ -166,6 +185,9 @@
                                 <exclude reference="WxV-Cu-CK3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Ddo-cj-x1m"/>
+                                <exclude reference="FG7-Jp-X47"/>
+                                <exclude reference="cxg-Lm-Hd9"/>
                                 <exclude reference="U76-aD-HtY"/>
                                 <exclude reference="klF-Zv-aCI"/>
                                 <exclude reference="FPT-Tl-kGL"/>
@@ -173,9 +195,6 @@
                                 <exclude reference="m6d-cW-DSh"/>
                                 <exclude reference="yZ3-ft-gg1"/>
                                 <exclude reference="sbx-Wk-vUs"/>
-                                <exclude reference="Ddo-cj-x1m"/>
-                                <exclude reference="FG7-Jp-X47"/>
-                                <exclude reference="cxg-Lm-Hd9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -185,6 +204,9 @@
                                 <include reference="WxV-Cu-CK3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Ddo-cj-x1m"/>
+                                <include reference="FG7-Jp-X47"/>
+                                <exclude reference="cxg-Lm-Hd9"/>
                                 <include reference="U76-aD-HtY"/>
                                 <include reference="klF-Zv-aCI"/>
                                 <exclude reference="FPT-Tl-kGL"/>
@@ -192,16 +214,28 @@
                                 <include reference="m6d-cW-DSh"/>
                                 <exclude reference="yZ3-ft-gg1"/>
                                 <include reference="sbx-Wk-vUs"/>
-                                <include reference="Ddo-cj-x1m"/>
-                                <include reference="FG7-Jp-X47"/>
-                                <exclude reference="cxg-Lm-Hd9"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="footerButton" destination="1Ik-fl-HDZ" id="ysX-Qn-Usp"/>
+                        <outlet property="footerLine" destination="WxV-Cu-CK3" id="Way-z1-LYS"/>
+                        <outlet property="headerContainer" destination="sA7-NB-dal" id="9o8-PJ-qLB"/>
+                        <outlet property="headerImage" destination="6jZ-1t-9FO" id="U9U-Uo-Bwz"/>
+                        <outlet property="headerText" destination="Ly6-Yw-7az" id="Bqk-CL-zaR"/>
+                        <outlet property="passwordField" destination="eDi-K1-rbV" id="iBf-DC-CYt"/>
+                        <outlet property="passwordLabel" destination="yX6-gU-hhX" id="zni-os-eeM"/>
+                        <outlet property="sendButton" destination="oVz-ax-Gwq" id="69j-Fc-qNI"/>
+                        <outlet property="usernameField" destination="nUh-uE-Ues" id="ZDg-ky-ets"/>
+                        <outlet property="usernameLabel" destination="LCd-dq-E2d" id="9Ym-oM-NmF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="490.5" y="450"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Auth0Badge" width="152" height="168"/>
+    </resources>
 </document>
