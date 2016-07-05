@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIWebViewDelegate>
 
 @end
 
@@ -16,12 +16,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    {{ //get token
+        NSString* nonce = [[NSUUID UUID] UUIDString]; //random string
+        NSString* authorizeString = [NSString stringWithFormat:@"https://weien.auth0.com/authorize/?response_type=token&client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&redirect_uri=a0tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8://weien.auth0.com/authorize&state=VALUE_THAT_SURVIVES_REDIRECTS&nonce=%@&scope=openid", nonce];
+        NSURL* authorizeURL = [NSURL URLWithString:authorizeString];
+        
+        UIWebView *webview = [[UIWebView alloc] initWithFrame:CGRectZero];
+        webview.frame = self.view.frame;
+        webview.delegate = self;
+        [self.view addSubview:webview];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:authorizeURL];
+        [webview loadRequest:request];
+    }}
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL* url = request.URL;
+    NSString *queryString = url.query ?: url.fragment;
+    NSLog(@"QueryString is %@", queryString);
+    
+    return YES;
 }
 
 @end
