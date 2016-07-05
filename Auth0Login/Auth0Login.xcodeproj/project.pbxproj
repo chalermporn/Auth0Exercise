@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6488039A1D2C44AF0064FCA3 /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 648803991D2C44AF0064FCA3 /* MyApplication.m */; };
 		64A7D2291D2AAF48003A6E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7D2281D2AAF48003A6E3D /* main.m */; };
 		64A7D22C1D2AAF48003A6E3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7D22B1D2AAF48003A6E3D /* AppDelegate.m */; };
 		64A7D22F1D2AAF48003A6E3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7D22E1D2AAF48003A6E3D /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* Begin PBXFileReference section */
 		189A3261503CF02D6EEC6DCE /* libPods-Auth0Login.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Auth0Login.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8C94E616ED8A34184E103 /* Pods-Auth0Login.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth0Login.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Auth0Login/Pods-Auth0Login.debug.xcconfig"; sourceTree = "<group>"; };
+		648803981D2C44AF0064FCA3 /* MyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplication.h; sourceTree = "<group>"; };
+		648803991D2C44AF0064FCA3 /* MyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplication.m; sourceTree = "<group>"; };
 		64A7D2241D2AAF48003A6E3D /* Auth0Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auth0Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A7D2281D2AAF48003A6E3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64A7D22A1D2AAF48003A6E3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				64A7D2381D2AAF48003A6E3D /* Info.plist */,
 				64A7D2271D2AAF48003A6E3D /* Supporting Files */,
 				64A7D23F1D2AB28E003A6E3D /* PrivateKeys.h */,
+				648803981D2C44AF0064FCA3 /* MyApplication.h */,
+				648803991D2C44AF0064FCA3 /* MyApplication.m */,
 			);
 			path = Auth0Login;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6488039A1D2C44AF0064FCA3 /* MyApplication.m in Sources */,
 				64A7D22F1D2AAF48003A6E3D /* ViewController.m in Sources */,
 				64A7D22C1D2AAF48003A6E3D /* AppDelegate.m in Sources */,
 				64A7D2291D2AAF48003A6E3D /* main.m in Sources */,
