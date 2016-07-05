@@ -17,27 +17,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    {{ //get token
-        NSString* nonce = [[NSUUID UUID] UUIDString]; //random string
-        NSString* authorizeString = [NSString stringWithFormat:@"https://weien.auth0.com/authorize/?response_type=token&client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&redirect_uri=a0tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8://weien.auth0.com/authorize&state=VALUE_THAT_SURVIVES_REDIRECTS&nonce=%@&scope=openid", nonce];
-        NSURL* authorizeURL = [NSURL URLWithString:authorizeString];
+    {{ //oauth/ro
+        NSString* username = nil;
+        NSString* password = nil;
+        NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
+        NSData* postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString* postLength = [@([postData length]) stringValue];
         
-        UIWebView *webview = [[UIWebView alloc] initWithFrame:CGRectZero];
-        webview.frame = self.view.frame;
-        webview.delegate = self;
-        [self.view addSubview:webview];
+        NSMutableURLRequest* request = [NSMutableURLRequest new];
+        request.URL = [NSURL URLWithString:@"https://weien.auth0.com/oauth/ro"];
+        request.HTTPMethod = @"POST";
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        request.HTTPBody = postData;
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:authorizeURL];
-        [webview loadRequest:request];
+        NSURLSession* urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        [[urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
+        }] resume];
     }}
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSURL* url = request.URL;
-    NSString *queryString = url.query ?: url.fragment;
-    NSLog(@"QueryString is %@", queryString);
-    
-    return YES;
 }
 
 @end
