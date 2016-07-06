@@ -21,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UIView *footerLine;
 @property (strong, nonatomic) IBOutlet UIButton *footerButton;
 
+@property (strong, nonatomic) UIAlertController* alertController;
+
+
 @end
 
 @implementation ViewController
@@ -55,12 +58,19 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard:)];
     [self.view addGestureRecognizer:tap];
-
     
-    {{ //oauth/ro
-        /*
-        NSString* username = nil;
-        NSString* password = nil;
+    self.alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [self.alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:NULL]];
+}
+
+- (IBAction)sendButtonTapped:(id)sender {
+    if (self.usernameField.text.length == 0 || self.passwordField.text.length == 0) {
+        self.alertController.message = NSLocalizedString(@"Please complete all fields before submitting.", nil);
+        [self showViewController:self.alertController sender:self];
+    }
+    else {
+        NSString* username = self.usernameField.text;
+        NSString* password = self.passwordField.text;
         NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
         NSData* postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString* postLength = [@([postData length]) stringValue];
@@ -77,11 +87,7 @@
             NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
         }] resume];
-         */
-    }}
-}
-
-- (IBAction)sendButtonTapped:(id)sender {
+    }
 }
 
 - (IBAction)footerButtonTapped:(id)sender {
