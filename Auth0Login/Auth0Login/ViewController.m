@@ -69,7 +69,7 @@
     [self.leftFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.leftFooterButton.titleLabel.font = [util currentBoldFontWithSize:14];
     self.leftFooterButton.layer.cornerRadius = 3;
-    [self.passwordlessButton setTitle:NSLocalizedString(@"Or, tap here to use PASSWORDLESS -- just enter your email to sign up or log in.", nil) forState:UIControlStateNormal];
+    [self.passwordlessButton setTitle:NSLocalizedString(@"Or, tap here to go PASSWORDLESS -- just enter your email to sign up or log in.", nil) forState:UIControlStateNormal];
     self.passwordlessButton.backgroundColor = [UIColor redColorSuccess];
     [self.passwordlessButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.passwordlessButton.titleLabel.font = [util currentBoldFontWithSize:14];
@@ -95,7 +95,7 @@
             NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&email=%@&connection=email&send=code", email];
             [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/passwordless/start" withCallback:^(BOOL success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.alertController.message = NSLocalizedString(@"Great! We've sent you a passcode. Let's paste that in.", nil);
+                    self.alertController.message = NSLocalizedString(@"Great! We've emailed you a passcode. Enter that in now.", nil);
                     [self showViewController:self.alertController sender:self];
                     self.usernameLabel.text = NSLocalizedString(@"Passcode", nil);
                     self.emailForPasswordless = self.usernameField.text;
@@ -197,6 +197,9 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.usernameField] && self.passwordField.alpha == 0) {
+        [self sendButtonTapped:self];
+    }
     if ([textField isEqual:self.usernameField] && self.passwordField.text.length == 0) {
         [self.passwordField becomeFirstResponder];
     }
@@ -209,8 +212,6 @@
         [textField resignFirstResponder];
     }
     return YES;
-    
-    //TODO: Add handling if self.usernameField is the only visible field
 }
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender {
@@ -226,6 +227,8 @@
         self.passwordlessButton.alpha = 1;
         self.headerText.text = NSLocalizedString(@"Welcome! Please log in.", nil);
         self.usernameField.returnKeyType = UIReturnKeyNext;
+        self.usernameField.text = @"";
+        self.passwordField.text = @"";
     }
 }
 
