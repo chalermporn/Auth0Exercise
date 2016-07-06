@@ -19,7 +19,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
 @property (strong, nonatomic) IBOutlet UIView *footerLine;
-@property (strong, nonatomic) IBOutlet UIButton *footerButton;
+@property (strong, nonatomic) IBOutlet UIButton *rightFooterButton;
+@property (strong, nonatomic) IBOutlet UIButton *leftFooterButton;
 
 @property (strong, nonatomic) UIAlertController* alertController;
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     self.headerContainer.backgroundColor = [UIColor grayColorDarkBackground];
     self.headerText.text = NSLocalizedString(@"Welcome! Please log in.", nil);
     self.headerText.textColor = [UIColor whiteColor];
@@ -42,18 +44,26 @@
     self.passwordLabel.textColor = [UIColor blackColorText];
     self.passwordLabel.font = [self currentMainFontWithSize:14];
     self.usernameField.delegate = self;
+    self.usernameField.font = [self currentMainFontWithSize:14];
     self.passwordField.delegate = self;
+    self.passwordField.font = [self currentMainFontWithSize:14];
     [self.sendButton setTitle:NSLocalizedString(@"SUBMIT", nil) forState:UIControlStateNormal];
     self.sendButton.backgroundColor = [UIColor redColorSuccess];
     [self.sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.sendButton.titleLabel.font = [self currentBoldFontWithSize:14];
     self.sendButton.layer.cornerRadius = 3;
     self.footerLine.backgroundColor = [UIColor grayColorLightText];
-    [self.footerButton setTitle:NSLocalizedString(@"CUSTOMIZE!", nil) forState:UIControlStateNormal];
-    self.footerButton.backgroundColor = [UIColor blueColorPrimary];
-    [self.footerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.footerButton.titleLabel.font = [self currentBoldFontWithSize:14];
-    self.footerButton.layer.cornerRadius = 3;
+    [self.rightFooterButton setTitle:NSLocalizedString(@"RECOLOR!", nil) forState:UIControlStateNormal];
+    self.rightFooterButton.backgroundColor = [UIColor blueColorPrimary];
+    [self.rightFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.rightFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
+    self.rightFooterButton.layer.cornerRadius = 3;
+    [self.leftFooterButton setTitle:NSLocalizedString(@"RESIZE!", nil) forState:UIControlStateNormal];
+    self.leftFooterButton.backgroundColor = [UIColor blueColorPrimary];
+    [self.leftFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
+    self.leftFooterButton.layer.cornerRadius = 3;
+
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard:)];
@@ -97,7 +107,48 @@
     }] resume];
 }
 
-- (IBAction)footerButtonTapped:(id)sender {
+- (IBAction)rightFooterButtonTapped:(id)sender {
+    if (self.view.backgroundColor == [UIColor whiteColor]) {
+        self.view.backgroundColor = [UIColor blueColorDarkBackground];
+        self.headerContainer.backgroundColor = [UIColor grayColorMediumBackground];
+        self.usernameLabel.textColor = [UIColor whiteColor];
+        self.passwordLabel.textColor = [UIColor whiteColor];
+        self.sendButton.backgroundColor = [UIColor orangeColorSecondary];
+        self.rightFooterButton.backgroundColor = [UIColor pinkColorSecondary];
+        self.leftFooterButton.backgroundColor = [UIColor pinkColorSecondary];
+    }
+    else {
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.headerContainer.backgroundColor = [UIColor grayColorDarkBackground];
+        self.usernameLabel.textColor = [UIColor blackColorText];
+        self.passwordLabel.textColor = [UIColor blackColorText];
+        self.sendButton.backgroundColor = [UIColor redColorSuccess];
+        self.rightFooterButton.backgroundColor = [UIColor blueColorPrimary];
+        self.leftFooterButton.backgroundColor = [UIColor blueColorPrimary];
+    }
+}
+
+- (IBAction)leftFooterButtonTapped:(id)sender {
+    if (self.headerText.font == [self currentMainFontWithSize:14]) {
+        self.headerText.font = [self currentMainFontWithSize:12];
+        self.usernameLabel.font = [self currentMainFontWithSize:12];
+        self.passwordLabel.font = [self currentMainFontWithSize:12];
+        self.usernameField.font = [self currentMainFontWithSize:12];
+        self.passwordField.font = [self currentMainFontWithSize:12];
+        self.sendButton.titleLabel.font = [self currentBoldFontWithSize:12];
+        self.rightFooterButton.titleLabel.font = [self currentBoldFontWithSize:12];
+        self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:12];
+    }
+    else {
+        self.headerText.font = [self currentMainFontWithSize:14];
+        self.usernameLabel.font = [self currentMainFontWithSize:14];
+        self.passwordLabel.font = [self currentMainFontWithSize:14];
+        self.usernameField.font = [self currentMainFontWithSize:14];
+        self.passwordField.font = [self currentMainFontWithSize:14];
+        self.sendButton.titleLabel.font = [self currentBoldFontWithSize:14];
+        self.rightFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
+        self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
+    }
 }
 
 - (UIFont*) currentMainFontWithSize:(float)size {

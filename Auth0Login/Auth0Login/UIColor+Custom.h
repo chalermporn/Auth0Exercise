@@ -14,4 +14,9 @@
 + (UIColor*) redColorSuccess;
 + (UIColor*) blueColorPrimary;
 + (UIColor*) blackColorText;
+
++ (UIColor*) blueColorDarkBackground;
++ (UIColor*) grayColorMediumBackground;
++ (UIColor*) orangeColorSecondary;
++ (UIColor*) pinkColorSecondary;
 @end

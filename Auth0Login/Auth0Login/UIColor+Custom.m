@@ -30,4 +30,22 @@
     return [UIColor colorWithRed:0.14 green:0.14 blue:0.14 alpha:1.00];
 }
 
+// -------------
+
++ (UIColor*) blueColorDarkBackground {
+    return [UIColor colorWithRed:0.09 green:0.13 blue:0.30 alpha:1.00];
+}
+
++ (UIColor*) grayColorMediumBackground {
+    return [UIColor colorWithRed:0.36 green:0.40 blue:0.44 alpha:1.00];
+}
+
++ (UIColor*) orangeColorSecondary {
+    return [UIColor colorWithRed:1.00 green:0.60 blue:0.34 alpha:1.00];
+}
+
++ (UIColor*) pinkColorSecondary {
+    return [UIColor colorWithRed:0.78 green:0.47 blue:0.70 alpha:1.00];
+}
+
 @end
