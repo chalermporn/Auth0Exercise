@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "UIColor+Custom.h"
 
-@interface ViewController () <UIWebViewDelegate>
+@interface ViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIView *headerContainer;
 @property (strong, nonatomic) IBOutlet UIImageView *headerImage;
 @property (strong, nonatomic) IBOutlet UILabel *headerText;
@@ -27,7 +28,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.headerContainer.backgroundColor = [UIColor grayColorDarkBackground];
+    self.headerText.text = NSLocalizedString(@"Welcome! Please log in.", nil);
+    self.headerText.textColor = [UIColor whiteColor];
+    self.headerText.font = [self currentMainFontWithSize:14];
+    self.usernameLabel.text = NSLocalizedString(@"Username", nil);
+    self.usernameLabel.textColor = [UIColor blackColorText];
+    self.usernameLabel.font = [self currentMainFontWithSize:14];
+    self.passwordLabel.text = NSLocalizedString(@"Password", nil);
+    self.passwordLabel.textColor = [UIColor blackColorText];
+    self.passwordLabel.font = [self currentMainFontWithSize:14];
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    [self.sendButton setTitle:NSLocalizedString(@"SUBMIT", nil) forState:UIControlStateNormal];
+    self.sendButton.backgroundColor = [UIColor redColorSuccess];
+    [self.sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.sendButton.titleLabel.font = [self currentBoldFontWithSize:14];
+    self.sendButton.layer.cornerRadius = 3;
+    self.footerLine.backgroundColor = [UIColor grayColorLightText];
+    [self.footerButton setTitle:NSLocalizedString(@"CUSTOMIZE!", nil) forState:UIControlStateNormal];
+    self.footerButton.backgroundColor = [UIColor blueColorPrimary];
+    [self.footerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.footerButton.titleLabel.font = [self currentBoldFontWithSize:14];
+    self.footerButton.layer.cornerRadius = 3;
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tap];
+
+    
     {{ //oauth/ro
+        /*
         NSString* username = nil;
         NSString* password = nil;
         NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
@@ -46,6 +77,7 @@
             NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
         }] resume];
+         */
     }}
 }
 
@@ -53,6 +85,37 @@
 }
 
 - (IBAction)footerButtonTapped:(id)sender {
+}
+
+- (UIFont*) currentMainFontWithSize:(float)size {
+    return [UIFont fontWithName:@"Avenir Next" size:size];
+}
+
+- (UIFont*) currentBoldFontWithSize:(float)size {
+    return [UIFont fontWithName:@"AvenirNext-DemiBold" size:size];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.usernameField] && self.passwordField.text.length == 0) {
+        [self.passwordField becomeFirstResponder];
+    }
+    else if (([textField isEqual:self.passwordField] && self.usernameField.text.length > 0) ||
+             ([textField isEqual:self.usernameField] && self.passwordField.text.length > 0)) {
+        [textField resignFirstResponder];
+        [self sendButtonTapped:self];
+    }
+    else {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+- (void)dismissKeyboard:(UITapGestureRecognizer *) sender {
+    [self.view endEditing:YES];
 }
 
 @end
