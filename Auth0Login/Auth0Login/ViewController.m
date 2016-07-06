@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIColor+Custom.h"
 #import "WWUtil.h"
+#import "UIViewController+Spinner.h"
 
 @interface ViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIView *headerContainer;
@@ -27,7 +28,7 @@
 @property (strong, nonatomic) UIAlertController* alertController;
 @property (strong, nonatomic) NSString* emailForPasswordless;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonYConstraint;
-
+@property (strong, nonatomic) UIActivityIndicatorView* spinner;
 
 @end
 
@@ -93,8 +94,10 @@
         else {
             NSString* email = self.usernameField.text;
             NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&email=%@&connection=email&send=code", email];
+            self.spinner = [self startSpinner:self.spinner inView:self.sendButton];
             [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/passwordless/start" withCallback:^(NSString* errorText) {
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [self stopSpinner:self.spinner];
                     if (errorText) {
                         [self displayMessage:errorText];
                     }
@@ -112,8 +115,10 @@
         //Passwordless Step 2
         NSString* code = self.usernameField.text;
         NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=email&grant_type=password&scope=openid", self.emailForPasswordless, code];
+        self.spinner = [self startSpinner:self.spinner inView:self.sendButton];
         [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(NSString* errorText) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self stopSpinner:self.spinner];
                 if (errorText) {
                     [self displayMessage:errorText];
                 }
@@ -132,8 +137,10 @@
             NSString* username = self.usernameField.text;
             NSString* password = self.passwordField.text;
             NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
+            self.spinner = [self startSpinner:self.spinner inView:self.sendButton];
             [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(NSString* errorText) {
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [self stopSpinner:self.spinner];
                     if (errorText) {
                         [self displayMessage:errorText];
                     }
