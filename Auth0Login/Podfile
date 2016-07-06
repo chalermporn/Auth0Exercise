@@ -4,6 +4,5 @@
 # use_frameworks!
 
 target 'Auth0Login' do
-  pod "Lock", "~> 1.26"
 end
 
