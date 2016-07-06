@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6488039A1D2C44AF0064FCA3 /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 648803991D2C44AF0064FCA3 /* MyApplication.m */; };
 		6488039D1D2C81FD0064FCA3 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */; };
 		648803A01D2D4E5D0064FCA3 /* WWUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6488039F1D2D4E5D0064FCA3 /* WWUtil.m */; };
 		648803A31D2D9F580064FCA3 /* UIViewController+Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 648803A21D2D9F580064FCA3 /* UIViewController+Spinner.m */; };
@@ -23,8 +22,6 @@
 /* Begin PBXFileReference section */
 		189A3261503CF02D6EEC6DCE /* libPods-Auth0Login.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Auth0Login.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8C94E616ED8A34184E103 /* Pods-Auth0Login.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth0Login.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Auth0Login/Pods-Auth0Login.debug.xcconfig"; sourceTree = "<group>"; };
-		648803981D2C44AF0064FCA3 /* MyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplication.h; sourceTree = "<group>"; };
-		648803991D2C44AF0064FCA3 /* MyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplication.m; sourceTree = "<group>"; };
 		6488039B1D2C81FD0064FCA3 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		6488039E1D2D4E5D0064FCA3 /* WWUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUtil.h; sourceTree = "<group>"; };
@@ -41,7 +38,6 @@
 		64A7D2331D2AAF48003A6E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64A7D2361D2AAF48003A6E3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64A7D2381D2AAF48003A6E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64A7D23F1D2AB28E003A6E3D /* PrivateKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivateKeys.h; sourceTree = "<group>"; };
 		ED5EF26D66EEBDD9166302E0 /* Pods-Auth0Login.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auth0Login.release.xcconfig"; path = "Pods/Target Support Files/Pods-Auth0Login/Pods-Auth0Login.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,9 +98,6 @@
 				64A7D2351D2AAF48003A6E3D /* LaunchScreen.storyboard */,
 				64A7D2381D2AAF48003A6E3D /* Info.plist */,
 				64A7D2271D2AAF48003A6E3D /* Supporting Files */,
-				64A7D23F1D2AB28E003A6E3D /* PrivateKeys.h */,
-				648803981D2C44AF0064FCA3 /* MyApplication.h */,
-				648803991D2C44AF0064FCA3 /* MyApplication.m */,
 			);
 			path = Auth0Login;
 			sourceTree = "<group>";
@@ -230,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6488039A1D2C44AF0064FCA3 /* MyApplication.m in Sources */,
 				6488039D1D2C81FD0064FCA3 /* UIColor+Custom.m in Sources */,
 				648803A31D2D9F580064FCA3 /* UIViewController+Spinner.m in Sources */,
 				64A7D22F1D2AAF48003A6E3D /* ViewController.m in Sources */,
