@@ -10,6 +10,7 @@
 		6488039A1D2C44AF0064FCA3 /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 648803991D2C44AF0064FCA3 /* MyApplication.m */; };
 		6488039D1D2C81FD0064FCA3 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */; };
 		648803A01D2D4E5D0064FCA3 /* WWUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6488039F1D2D4E5D0064FCA3 /* WWUtil.m */; };
+		648803A31D2D9F580064FCA3 /* UIViewController+Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 648803A21D2D9F580064FCA3 /* UIViewController+Spinner.m */; };
 		64A7D2291D2AAF48003A6E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7D2281D2AAF48003A6E3D /* main.m */; };
 		64A7D22C1D2AAF48003A6E3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7D22B1D2AAF48003A6E3D /* AppDelegate.m */; };
 		64A7D22F1D2AAF48003A6E3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A7D22E1D2AAF48003A6E3D /* ViewController.m */; };
@@ -28,6 +29,8 @@
 		6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		6488039E1D2D4E5D0064FCA3 /* WWUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUtil.h; sourceTree = "<group>"; };
 		6488039F1D2D4E5D0064FCA3 /* WWUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUtil.m; sourceTree = "<group>"; };
+		648803A11D2D9F580064FCA3 /* UIViewController+Spinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Spinner.h"; sourceTree = "<group>"; };
+		648803A21D2D9F580064FCA3 /* UIViewController+Spinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Spinner.m"; sourceTree = "<group>"; };
 		64A7D2241D2AAF48003A6E3D /* Auth0Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auth0Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A7D2281D2AAF48003A6E3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64A7D22A1D2AAF48003A6E3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				6488039E1D2D4E5D0064FCA3 /* WWUtil.h */,
 				6488039F1D2D4E5D0064FCA3 /* WWUtil.m */,
 				64A7D2301D2AAF48003A6E3D /* Main.storyboard */,
+				648803A11D2D9F580064FCA3 /* UIViewController+Spinner.h */,
+				648803A21D2D9F580064FCA3 /* UIViewController+Spinner.m */,
 				6488039B1D2C81FD0064FCA3 /* UIColor+Custom.h */,
 				6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */,
 				64A7D2331D2AAF48003A6E3D /* Assets.xcassets */,
@@ -227,6 +232,7 @@
 			files = (
 				6488039A1D2C44AF0064FCA3 /* MyApplication.m in Sources */,
 				6488039D1D2C81FD0064FCA3 /* UIColor+Custom.m in Sources */,
+				648803A31D2D9F580064FCA3 /* UIViewController+Spinner.m in Sources */,
 				64A7D22F1D2AAF48003A6E3D /* ViewController.m in Sources */,
 				64A7D22C1D2AAF48003A6E3D /* AppDelegate.m in Sources */,
 				64A7D2291D2AAF48003A6E3D /* main.m in Sources */,
