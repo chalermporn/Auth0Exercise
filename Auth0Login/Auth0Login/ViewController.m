@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *passwordlessButton;
 
 @property (strong, nonatomic) UIAlertController* alertController;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonYConstraint;
 
 
 @end
@@ -64,7 +65,7 @@
     [self.leftFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
     self.leftFooterButton.layer.cornerRadius = 3;
-    [self.passwordlessButton setTitle:NSLocalizedString(@"Or, tap here to try PASSWORDLESS -- you just need an email address.", nil) forState:UIControlStateNormal];
+    [self.passwordlessButton setTitle:NSLocalizedString(@"Or, tap here to use PASSWORDLESS -- just enter your email address.", nil) forState:UIControlStateNormal];
     self.passwordlessButton.backgroundColor = [UIColor redColorSuccess];
     [self.passwordlessButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.passwordlessButton.titleLabel.font = [self currentBoldFontWithSize:14];
@@ -82,17 +83,28 @@
 }
 
 - (IBAction)sendButtonTapped:(id)sender {
-    if (self.usernameField.text.length == 0 || self.passwordField.text.length == 0) {
-        self.alertController.message = NSLocalizedString(@"Please complete all fields before submitting.", nil);
-        [self showViewController:self.alertController sender:self];
+    if ([self.usernameLabel.text isEqualToString:@"Email"]) {
+        if (self.usernameField.text.length == 0) {
+            self.alertController.message = NSLocalizedString(@"Please add an email address before submitting.", nil);
+            [self showViewController:self.alertController sender:self];
+        }
+        else {
+            //submit a post!
+        }
     }
     else {
-        NSString* username = self.usernameField.text;
-        NSString* password = self.passwordField.text;
-        NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
-        [self submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(BOOL success) {
-            
-        }];
+        if (self.usernameField.text.length == 0 || self.passwordField.text.length == 0) {
+            self.alertController.message = NSLocalizedString(@"Please complete all fields before submitting.", nil);
+            [self showViewController:self.alertController sender:self];
+        }
+        else {
+            NSString* username = self.usernameField.text;
+            NSString* password = self.passwordField.text;
+            NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
+            [self submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(BOOL success) {
+                
+            }];
+        }
     }
 }
 
@@ -116,7 +128,16 @@
 }
 
 - (IBAction)passwordlessButtonTapped:(id)sender {
+    self.sendButtonYConstraint.constant = 0-CGRectGetHeight(self.passwordField.frame);
     
+    [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^() {
+        self.usernameLabel.text = NSLocalizedString(@"Email", nil);
+        self.passwordLabel.alpha = 0;
+        self.passwordField.alpha = 0;
+        [self.view layoutIfNeeded];
+        self.passwordlessButton.alpha = 0;
+        [self.usernameField becomeFirstResponder];
+    } completion:NULL];
 }
 
 - (IBAction)rightFooterButtonTapped:(id)sender {
@@ -196,6 +217,14 @@
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender {
     [self.view endEditing:YES];
+    
+    if ([self.usernameLabel.text isEqualToString:@"Email"]) {
+        self.usernameLabel.text = NSLocalizedString(@"Username", nil);
+        self.passwordLabel.alpha = 1;
+        self.passwordField.alpha = 1;
+        self.sendButtonYConstraint.constant = 12;
+        self.passwordlessButton.alpha = 1;
+    }
 }
 
 @end

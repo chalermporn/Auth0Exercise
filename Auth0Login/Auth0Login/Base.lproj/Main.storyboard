@@ -273,21 +273,21 @@
                                 <exclude reference="ZNm-JJ-m26"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="U76-aD-HtY"/>
-                                <exclude reference="klF-Zv-aCI"/>
-                                <exclude reference="RXK-zq-nau"/>
-                                <exclude reference="FPT-Tl-kGL"/>
-                                <exclude reference="Gh8-XH-chk"/>
-                                <exclude reference="m6d-cW-DSh"/>
-                                <exclude reference="n47-Kr-X71"/>
-                                <exclude reference="yZ3-ft-gg1"/>
-                                <exclude reference="sbx-Wk-vUs"/>
                                 <exclude reference="Ddo-cj-x1m"/>
                                 <exclude reference="FG7-Jp-X47"/>
                                 <exclude reference="OdH-cF-Iwa"/>
                                 <exclude reference="cYi-fZ-qMV"/>
                                 <exclude reference="cxg-Lm-Hd9"/>
                                 <exclude reference="i9Q-zC-GZW"/>
+                                <exclude reference="RXK-zq-nau"/>
+                                <exclude reference="U76-aD-HtY"/>
+                                <exclude reference="klF-Zv-aCI"/>
+                                <exclude reference="FPT-Tl-kGL"/>
+                                <exclude reference="Gh8-XH-chk"/>
+                                <exclude reference="m6d-cW-DSh"/>
+                                <exclude reference="n47-Kr-X71"/>
+                                <exclude reference="yZ3-ft-gg1"/>
+                                <exclude reference="sbx-Wk-vUs"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -299,21 +299,21 @@
                                 <include reference="ZNm-JJ-m26"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="U76-aD-HtY"/>
-                                <include reference="klF-Zv-aCI"/>
-                                <include reference="RXK-zq-nau"/>
-                                <exclude reference="FPT-Tl-kGL"/>
-                                <include reference="Gh8-XH-chk"/>
-                                <include reference="m6d-cW-DSh"/>
-                                <include reference="n47-Kr-X71"/>
-                                <exclude reference="yZ3-ft-gg1"/>
-                                <include reference="sbx-Wk-vUs"/>
                                 <include reference="Ddo-cj-x1m"/>
                                 <include reference="FG7-Jp-X47"/>
                                 <include reference="OdH-cF-Iwa"/>
                                 <include reference="cYi-fZ-qMV"/>
                                 <exclude reference="cxg-Lm-Hd9"/>
                                 <include reference="i9Q-zC-GZW"/>
+                                <include reference="RXK-zq-nau"/>
+                                <include reference="U76-aD-HtY"/>
+                                <include reference="klF-Zv-aCI"/>
+                                <exclude reference="FPT-Tl-kGL"/>
+                                <include reference="Gh8-XH-chk"/>
+                                <include reference="m6d-cW-DSh"/>
+                                <include reference="n47-Kr-X71"/>
+                                <exclude reference="yZ3-ft-gg1"/>
+                                <include reference="sbx-Wk-vUs"/>
                             </mask>
                         </variation>
                     </view>
@@ -328,6 +328,7 @@
                         <outlet property="passwordlessButton" destination="ZNm-JJ-m26" id="RZY-Zf-2dk"/>
                         <outlet property="rightFooterButton" destination="1Ik-fl-HDZ" id="NFL-OC-zF8"/>
                         <outlet property="sendButton" destination="oVz-ax-Gwq" id="69j-Fc-qNI"/>
+                        <outlet property="sendButtonYConstraint" destination="klF-Zv-aCI" id="dsP-Wo-ETe"/>
                         <outlet property="usernameField" destination="nUh-uE-Ues" id="ZDg-ky-ets"/>
                         <outlet property="usernameLabel" destination="LCd-dq-E2d" id="9Ym-oM-NmF"/>
                     </connections>
