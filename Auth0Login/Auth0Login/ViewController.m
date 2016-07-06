@@ -86,45 +86,69 @@
 
 - (IBAction)sendButtonTapped:(id)sender {
     if ([self.usernameLabel.text isEqualToString:NSLocalizedString(@"Email", nil)]) {
+        //Passwordless Step 1
         if (self.usernameField.text.length == 0) {
-            self.alertController.message = NSLocalizedString(@"Please add an email address before submitting.", nil);
-            [self showViewController:self.alertController sender:self];
+            [self displayMessage:NSLocalizedString(@"Please add an email address before submitting.", nil)];
         }
         else {
             NSString* email = self.usernameField.text;
             NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&email=%@&connection=email&send=code", email];
-            [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/passwordless/start" withCallback:^(BOOL success) {
+            [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/passwordless/start" withCallback:^(NSString* errorText) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.alertController.message = NSLocalizedString(@"Great! We've emailed you a passcode. Enter that in now.", nil);
-                    [self showViewController:self.alertController sender:self];
-                    self.usernameLabel.text = NSLocalizedString(@"Passcode", nil);
-                    self.emailForPasswordless = self.usernameField.text;
-                    self.usernameField.text = @"";
+                    if (errorText) {
+                        [self displayMessage:errorText];
+                    }
+                    else {
+                        [self displayMessage:NSLocalizedString(@"Great! We've emailed you a passcode. Enter that in now.", nil)];
+                        self.usernameLabel.text = NSLocalizedString(@"Passcode", nil);
+                        self.emailForPasswordless = self.usernameField.text;
+                        self.usernameField.text = @"";
+                    }
                 });
             }];
         }
     }
     else if ([self.usernameLabel.text isEqualToString:NSLocalizedString(@"Passcode", nil)]) {
+        //Passwordless Step 2
         NSString* code = self.usernameField.text;
         NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=email&grant_type=password&scope=openid", self.emailForPasswordless, code];
-        [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(BOOL success) {
-            //TODO: pop up a success alert
+        [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(NSString* errorText) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (errorText) {
+                    [self displayMessage:errorText];
+                }
+                else {
+                    [self displayMessage:NSLocalizedString(@"SUCCESSFUL LOGIN! 🙌", nil)];
+                }
+            });
         }];
     }
     else {
+        //Normal Login
         if (self.usernameField.text.length == 0 || self.passwordField.text.length == 0) {
-            self.alertController.message = NSLocalizedString(@"Please complete all fields before submitting.", nil);
-            [self showViewController:self.alertController sender:self];
+            [self displayMessage:NSLocalizedString(@"Please complete all fields before submitting.", nil)];
         }
         else {
             NSString* username = self.usernameField.text;
             NSString* password = self.passwordField.text;
             NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
-            [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(BOOL success) {
-                //TODO: pop up a success alert
+            [[WWUtil sharedInstance] submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(NSString* errorText) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (errorText) {
+                        [self displayMessage:errorText];
+                    }
+                    else {
+                        [self displayMessage:NSLocalizedString(@"SUCCESSFUL LOGIN! 🙌", nil)];
+                    }
+                });
             }];
         }
     }
+}
+
+- (void) displayMessage:(NSString*)message {
+    self.alertController.message = message;
+    [self showViewController:self.alertController sender:self];
 }
 
 - (IBAction)passwordlessButtonTapped:(id)sender {

@@ -10,7 +10,7 @@
 
 @interface WWUtil : NSObject
 + (instancetype)sharedInstance;
-- (void) submitPOST:(NSString*)post toURL:(NSString*)url withCallback:(void (^)(BOOL success))callback;
+- (void) submitPOST:(NSString*)post toURL:(NSString*)url withCallback:(void (^)(NSString* errorText))callback;
 - (UIFont*) currentMainFontWithSize:(float)size;
 - (UIFont*) currentBoldFontWithSize:(float)size;
 @end

@@ -21,7 +21,7 @@
     return _sharedObject;
 }
 
-- (void) submitPOST:(NSString*)post toURL:(NSString*)url withCallback:(void (^)(BOOL success))callback {
+- (void) submitPOST:(NSString*)post toURL:(NSString*)url withCallback:(void (^)(NSString* errorText))callback {
     NSData* postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString* postLength = [@([postData length]) stringValue];
     
@@ -36,7 +36,16 @@
     [[urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
-        callback(YES);
+        NSDictionary* replyDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        if (error) {
+            callback([NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Error:", nil), error.localizedDescription]);
+        }
+        else if (replyDict[@"error_description"]) {
+            callback([NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Error:", nil), replyDict[@"error_description"]]);
+        }
+        else {
+            callback(nil);
+        }
     }] resume];
 }
 
