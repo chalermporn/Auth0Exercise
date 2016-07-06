@@ -72,22 +72,29 @@
         NSString* username = self.usernameField.text;
         NSString* password = self.passwordField.text;
         NSString* post = [NSString stringWithFormat:@"client_id=tSKVxuMzRm4MfmnnXD1E85JONlnEgHW8&username=%@&password=%@&connection=Username-Password-Authentication&grant_type=password&scope=openid", username, password];
-        NSData* postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        NSString* postLength = [@([postData length]) stringValue];
-        
-        NSMutableURLRequest* request = [NSMutableURLRequest new];
-        request.URL = [NSURL URLWithString:@"https://weien.auth0.com/oauth/ro"];
-        request.HTTPMethod = @"POST";
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        request.HTTPBody = postData;
-        
-        NSURLSession* urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        [[urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-            NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
-        }] resume];
+        [self submitPOST:post toURL:@"https://weien.auth0.com/oauth/ro" withCallback:^(BOOL success) {
+            
+        }];
     }
+}
+
+- (void) submitPOST:(NSString*)post toURL:(NSString*)url withCallback:(void (^)(BOOL success))callback {
+    NSData* postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString* postLength = [@([postData length]) stringValue];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest new];
+    request.URL = [NSURL URLWithString:url];
+    request.HTTPMethod = @"POST";
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    request.HTTPBody = postData;
+    
+    NSURLSession* urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        NSLog(@"RequestReply: %@, Response: %@, Error: %@", requestReply, response, error);
+        callback(YES);
+    }] resume];
 }
 
 - (IBAction)footerButtonTapped:(id)sender {
