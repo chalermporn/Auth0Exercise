@@ -9,3 +9,5 @@ The interface also allows the user to toggle between two different color schemes
 2. Clone or Download Auth0Exercise
 3. Open Auth0Login/Auth0Login.xcodeproj
 4. Click the Play button (Cmd-R) to build and run the app
+
+![Screenshot of UI](uiexample.png)
