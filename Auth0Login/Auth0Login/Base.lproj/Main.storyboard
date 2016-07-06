@@ -20,23 +20,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sA7-NB-dal">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Auth0Badge" translatesAutoresizingMaskIntoConstraints="NO" id="6jZ-1t-9FO">
+                                        <rect key="frame" x="50" y="12" width="50" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="09a-Wf-tNG">
+                                                <variation key="widthClass=compact" constant="28"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="56" id="Q6x-c4-IXu">
+                                                <variation key="widthClass=compact" constant="32"/>
+                                            </constraint>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-Yw-7az">
                                         <rect key="frame" x="124" y="30" width="452" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Auth0Badge" translatesAutoresizingMaskIntoConstraints="NO" id="6jZ-1t-9FO">
-                                        <rect key="frame" x="50" y="12" width="50" height="56"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="09a-Wf-tNG">
-                                                <variation key="widthClass=compact" constant="38"/>
-                                            </constraint>
-                                            <constraint firstAttribute="height" constant="56" id="Q6x-c4-IXu">
-                                                <variation key="widthClass=compact" constant="42"/>
-                                            </constraint>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -52,20 +52,26 @@
                                         <variation key="widthClass=compact" constant="10"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="Ly6-Yw-7az" secondAttribute="trailing" constant="24" id="G5Z-IX-Hbi"/>
+                                    <constraint firstItem="Ly6-Yw-7az" firstAttribute="top" secondItem="6jZ-1t-9FO" secondAttribute="top" id="TU5-fs-ePn"/>
                                     <constraint firstItem="Ly6-Yw-7az" firstAttribute="leading" secondItem="6jZ-1t-9FO" secondAttribute="trailing" constant="24" id="Uvj-bG-ACc"/>
+                                    <constraint firstItem="Ly6-Yw-7az" firstAttribute="bottom" secondItem="6jZ-1t-9FO" secondAttribute="bottom" id="jYq-64-OYK"/>
                                     <constraint firstAttribute="bottom" secondItem="Ly6-Yw-7az" secondAttribute="bottom" id="t9y-VR-ded"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="0ea-m4-e2z"/>
+                                        <exclude reference="TU5-fs-ePn"/>
+                                        <exclude reference="jYq-64-OYK"/>
                                         <exclude reference="t9y-VR-ded"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="0ZK-yC-ttu"/>
-                                        <include reference="0ea-m4-e2z"/>
-                                        <include reference="t9y-VR-ded"/>
+                                        <exclude reference="0ea-m4-e2z"/>
+                                        <include reference="TU5-fs-ePn"/>
+                                        <include reference="jYq-64-OYK"/>
+                                        <exclude reference="t9y-VR-ded"/>
                                     </mask>
                                 </variation>
                             </view>
