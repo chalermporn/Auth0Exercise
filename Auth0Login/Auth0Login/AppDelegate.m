@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Lock/Lock.h>
 #import "MyApplication.h"
 
 @interface AppDelegate ()
@@ -16,17 +15,8 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    A0Lock *lock = [[MyApplication sharedInstance] lock];
-    [lock applicationLaunchedWithOptions:launchOptions];
-    
     return YES;
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    A0Lock *lock = [[MyApplication sharedInstance] lock];
-    return [lock handleURL:url sourceApplication:sourceApplication];
 }
 
 @end
