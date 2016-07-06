@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIView *footerLine;
 @property (strong, nonatomic) IBOutlet UIButton *rightFooterButton;
 @property (strong, nonatomic) IBOutlet UIButton *leftFooterButton;
+@property (strong, nonatomic) IBOutlet UIButton *passwordlessButton;
 
 @property (strong, nonatomic) UIAlertController* alertController;
 
@@ -63,6 +64,13 @@
     [self.leftFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
     self.leftFooterButton.layer.cornerRadius = 3;
+    [self.passwordlessButton setTitle:NSLocalizedString(@"Or, tap here to try PASSWORDLESS -- you just need an email address.", nil) forState:UIControlStateNormal];
+    self.passwordlessButton.backgroundColor = [UIColor redColorSuccess];
+    [self.passwordlessButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.passwordlessButton.titleLabel.font = [self currentBoldFontWithSize:14];
+    self.passwordlessButton.layer.cornerRadius = 3;
+    [self.passwordlessButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+
 
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -107,6 +115,10 @@
     }] resume];
 }
 
+- (IBAction)passwordlessButtonTapped:(id)sender {
+    
+}
+
 - (IBAction)rightFooterButtonTapped:(id)sender {
     if (self.view.backgroundColor == [UIColor whiteColor]) {
         self.view.backgroundColor = [UIColor blueColorDarkBackground];
@@ -116,6 +128,7 @@
         self.sendButton.backgroundColor = [UIColor orangeColorSecondary];
         self.rightFooterButton.backgroundColor = [UIColor pinkColorSecondary];
         self.leftFooterButton.backgroundColor = [UIColor pinkColorSecondary];
+        self.passwordlessButton.backgroundColor = [UIColor orangeColorSecondary];
     }
     else {
         self.view.backgroundColor = [UIColor whiteColor];
@@ -125,6 +138,7 @@
         self.sendButton.backgroundColor = [UIColor redColorSuccess];
         self.rightFooterButton.backgroundColor = [UIColor blueColorPrimary];
         self.leftFooterButton.backgroundColor = [UIColor blueColorPrimary];
+        self.passwordlessButton.backgroundColor = [UIColor redColorSuccess];
     }
 }
 
@@ -138,6 +152,7 @@
         self.sendButton.titleLabel.font = [self currentBoldFontWithSize:12];
         self.rightFooterButton.titleLabel.font = [self currentBoldFontWithSize:12];
         self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:12];
+        self.passwordlessButton.titleLabel.font = [self currentBoldFontWithSize:12];
     }
     else {
         self.headerText.font = [self currentMainFontWithSize:14];
@@ -148,6 +163,7 @@
         self.sendButton.titleLabel.font = [self currentBoldFontWithSize:14];
         self.rightFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
         self.leftFooterButton.titleLabel.font = [self currentBoldFontWithSize:14];
+        self.passwordlessButton.titleLabel.font = [self currentBoldFontWithSize:14];
     }
 }
 

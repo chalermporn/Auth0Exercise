@@ -47,7 +47,9 @@
                                     <constraint firstItem="Ly6-Yw-7az" firstAttribute="top" secondItem="sA7-NB-dal" secondAttribute="top" id="0ea-m4-e2z">
                                         <variation key="widthClass=compact" constant="10"/>
                                     </constraint>
-                                    <constraint firstItem="6jZ-1t-9FO" firstAttribute="leading" secondItem="sA7-NB-dal" secondAttribute="leading" constant="50" id="0ip-8M-D1c"/>
+                                    <constraint firstItem="6jZ-1t-9FO" firstAttribute="leading" secondItem="sA7-NB-dal" secondAttribute="leading" constant="50" id="0ip-8M-D1c">
+                                        <variation key="widthClass=compact" constant="36"/>
+                                    </constraint>
                                     <constraint firstItem="6jZ-1t-9FO" firstAttribute="centerY" secondItem="sA7-NB-dal" secondAttribute="centerY" id="CYG-Jc-hGY">
                                         <variation key="widthClass=compact" constant="10"/>
                                     </constraint>
@@ -197,6 +199,30 @@
                                     <action selector="leftFooterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="liB-Xk-Nav"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZNm-JJ-m26">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="JzL-uD-BSx"/>
+                                    <constraint firstAttribute="width" constant="200" id="bgo-4d-cZ8"/>
+                                </constraints>
+                                <state key="normal" title="Passwordless"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JzL-uD-BSx"/>
+                                        <exclude reference="bgo-4d-cZ8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="JzL-uD-BSx"/>
+                                        <include reference="bgo-4d-cZ8"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="passwordlessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rmx-Jz-5Tq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -218,6 +244,7 @@
                             </constraint>
                             <constraint firstItem="eDi-K1-rbV" firstAttribute="leading" secondItem="nUh-uE-Ues" secondAttribute="leading" id="PCr-bz-HPW"/>
                             <constraint firstItem="nUh-uE-Ues" firstAttribute="centerY" secondItem="LCd-dq-E2d" secondAttribute="centerY" id="Qe7-Ix-iog"/>
+                            <constraint firstItem="ZNm-JJ-m26" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RXK-zq-nau"/>
                             <constraint firstItem="oVz-ax-Gwq" firstAttribute="trailing" secondItem="eDi-K1-rbV" secondAttribute="trailing" id="U76-aD-HtY"/>
                             <constraint firstItem="1Ik-fl-HDZ" firstAttribute="bottom" secondItem="gdn-tH-WdB" secondAttribute="bottom" id="cYi-fZ-qMV"/>
                             <constraint firstAttribute="trailing" secondItem="1Ik-fl-HDZ" secondAttribute="trailing" constant="20" id="cxg-Lm-Hd9"/>
@@ -230,6 +257,7 @@
                                 <variation key="widthClass=compact" constant="24"/>
                             </constraint>
                             <constraint firstItem="WxV-Cu-CK3" firstAttribute="leading" secondItem="yX6-gU-hhX" secondAttribute="leading" id="m6d-cW-DSh"/>
+                            <constraint firstItem="WxV-Cu-CK3" firstAttribute="top" secondItem="ZNm-JJ-m26" secondAttribute="bottom" constant="36" id="n47-Kr-X71"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1Ik-fl-HDZ" secondAttribute="bottom" constant="20" id="sbx-Wk-vUs"/>
                             <constraint firstItem="nUh-uE-Ues" firstAttribute="top" secondItem="sA7-NB-dal" secondAttribute="bottom" constant="32" id="uJX-5n-S8W">
                                 <variation key="widthClass=compact" constant="24"/>
@@ -242,13 +270,16 @@
                                 <exclude reference="WxV-Cu-CK3"/>
                                 <exclude reference="1Ik-fl-HDZ"/>
                                 <exclude reference="gdn-tH-WdB"/>
+                                <exclude reference="ZNm-JJ-m26"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="U76-aD-HtY"/>
                                 <exclude reference="klF-Zv-aCI"/>
+                                <exclude reference="RXK-zq-nau"/>
                                 <exclude reference="FPT-Tl-kGL"/>
                                 <exclude reference="Gh8-XH-chk"/>
                                 <exclude reference="m6d-cW-DSh"/>
+                                <exclude reference="n47-Kr-X71"/>
                                 <exclude reference="yZ3-ft-gg1"/>
                                 <exclude reference="sbx-Wk-vUs"/>
                                 <exclude reference="Ddo-cj-x1m"/>
@@ -265,13 +296,16 @@
                                 <include reference="WxV-Cu-CK3"/>
                                 <include reference="1Ik-fl-HDZ"/>
                                 <include reference="gdn-tH-WdB"/>
+                                <include reference="ZNm-JJ-m26"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="U76-aD-HtY"/>
                                 <include reference="klF-Zv-aCI"/>
+                                <include reference="RXK-zq-nau"/>
                                 <exclude reference="FPT-Tl-kGL"/>
                                 <include reference="Gh8-XH-chk"/>
                                 <include reference="m6d-cW-DSh"/>
+                                <include reference="n47-Kr-X71"/>
                                 <exclude reference="yZ3-ft-gg1"/>
                                 <include reference="sbx-Wk-vUs"/>
                                 <include reference="Ddo-cj-x1m"/>
@@ -291,6 +325,7 @@
                         <outlet property="leftFooterButton" destination="gdn-tH-WdB" id="YYO-wT-2tg"/>
                         <outlet property="passwordField" destination="eDi-K1-rbV" id="iBf-DC-CYt"/>
                         <outlet property="passwordLabel" destination="yX6-gU-hhX" id="zni-os-eeM"/>
+                        <outlet property="passwordlessButton" destination="ZNm-JJ-m26" id="RZY-Zf-2dk"/>
                         <outlet property="rightFooterButton" destination="1Ik-fl-HDZ" id="NFL-OC-zF8"/>
                         <outlet property="sendButton" destination="oVz-ax-Gwq" id="69j-Fc-qNI"/>
                         <outlet property="usernameField" destination="nUh-uE-Ues" id="ZDg-ky-ets"/>
