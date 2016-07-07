@@ -1,0 +1,15 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'Auth0Login' do
+  pod 'React', :path => './node_modules/react-native', :subspecs => [
+    'Core',
+    'RCTText',
+    'RCTWebSocket', # needed for debugging
+  ]
+end
+
+target 'Auth0LoginFramework' do
+
+end
+
