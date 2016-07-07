@@ -10,8 +10,12 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  requireNativeComponent
 } from 'react-native';
+
+var CustomLoginView = requireNativeComponent('Auth0Login', null);
+module.exports = CustomLoginView;
 
 class ReactNativeExampleApp extends Component {
   render() {
@@ -27,10 +31,11 @@ class ReactNativeExampleApp extends Component {
         <TouchableHighlight
     	  style={styles.button}
           onPress={this.buttonClicked}>
-        <View>
-          <Text style={styles.buttonText}>Please tap me!</Text>
-        </View>
-      </TouchableHighlight>
+          <View>
+            <Text style={styles.buttonText}>Please tap me!</Text>
+          </View>
+        </TouchableHighlight>
+        <CustomLoginView style={{width: 300, height: 400, backgroundColor: 'lightgray'}}/>
       </View>
     );
   }
