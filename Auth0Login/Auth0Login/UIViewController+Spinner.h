@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UIView (Commonality)
+- (UIActivityIndicatorView*) startSpinner:(UIActivityIndicatorView*)spinner inView:(UIView*)view;
+- (void) stopSpinner:(UIActivityIndicatorView*)spinner;
+@end
+
 @interface UIViewController (Spinner)
 - (UIActivityIndicatorView*) startSpinner:(UIActivityIndicatorView*)spinner inView:(UIView*)view;
 - (void) stopSpinner:(UIActivityIndicatorView*)spinner;

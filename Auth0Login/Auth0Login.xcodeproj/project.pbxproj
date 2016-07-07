@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643AA9E01D2EB93800E0AAB5 /* Auth0Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 643AA9DF1D2EB93800E0AAB5 /* Auth0Login.m */; };
+		643AA9E21D2EB95900E0AAB5 /* Auth0Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643AA9E11D2EB95900E0AAB5 /* Auth0Login.xib */; };
 		6488039D1D2C81FD0064FCA3 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */; };
 		648803A01D2D4E5D0064FCA3 /* WWUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6488039F1D2D4E5D0064FCA3 /* WWUtil.m */; };
 		648803A31D2D9F580064FCA3 /* UIViewController+Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 648803A21D2D9F580064FCA3 /* UIViewController+Spinner.m */; };
@@ -47,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		189A3261503CF02D6EEC6DCE /* libPods-Auth0Login.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Auth0Login.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		643AA9DE1D2EB93800E0AAB5 /* Auth0Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth0Login.h; sourceTree = "<group>"; };
+		643AA9DF1D2EB93800E0AAB5 /* Auth0Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth0Login.m; sourceTree = "<group>"; };
+		643AA9E11D2EB95900E0AAB5 /* Auth0Login.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Auth0Login.xib; sourceTree = "<group>"; };
 		6488039B1D2C81FD0064FCA3 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		6488039C1D2C81FD0064FCA3 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		6488039E1D2D4E5D0064FCA3 /* WWUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUtil.h; sourceTree = "<group>"; };
@@ -123,6 +128,9 @@
 				64A7D22E1D2AAF48003A6E3D /* ViewController.m */,
 				6488039E1D2D4E5D0064FCA3 /* WWUtil.h */,
 				6488039F1D2D4E5D0064FCA3 /* WWUtil.m */,
+				643AA9DE1D2EB93800E0AAB5 /* Auth0Login.h */,
+				643AA9DF1D2EB93800E0AAB5 /* Auth0Login.m */,
+				643AA9E11D2EB95900E0AAB5 /* Auth0Login.xib */,
 				64A7D2301D2AAF48003A6E3D /* Main.storyboard */,
 				648803A11D2D9F580064FCA3 /* UIViewController+Spinner.h */,
 				648803A21D2D9F580064FCA3 /* UIViewController+Spinner.m */,
@@ -255,6 +263,7 @@
 			files = (
 				64A7D2371D2AAF48003A6E3D /* LaunchScreen.storyboard in Resources */,
 				64A7D2341D2AAF48003A6E3D /* Assets.xcassets in Resources */,
+				643AA9E21D2EB95900E0AAB5 /* Auth0Login.xib in Resources */,
 				64A7D2321D2AAF48003A6E3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				643AA9E01D2EB93800E0AAB5 /* Auth0Login.m in Sources */,
 				6488039D1D2C81FD0064FCA3 /* UIColor+Custom.m in Sources */,
 				648803A31D2D9F580064FCA3 /* UIViewController+Spinner.m in Sources */,
 				64A7D22F1D2AAF48003A6E3D /* ViewController.m in Sources */,
