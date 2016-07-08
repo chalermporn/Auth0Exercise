@@ -31,7 +31,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH2-ka-wus">
                                     <rect key="frame" x="124" y="30" width="452" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -61,18 +61,18 @@
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="1Yk-A4-b46"/>
-                                    <exclude reference="vax-h5-cZ5"/>
-                                    <exclude reference="WQ0-Ge-LT1"/>
                                     <exclude reference="O3V-gm-jOj"/>
+                                    <exclude reference="WQ0-Ge-LT1"/>
+                                    <exclude reference="vax-h5-cZ5"/>
                                 </mask>
                             </variation>
                             <variation key="widthClass=compact">
                                 <mask key="constraints">
                                     <exclude reference="0ew-KV-FS9"/>
                                     <exclude reference="1Yk-A4-b46"/>
-                                    <include reference="vax-h5-cZ5"/>
-                                    <include reference="WQ0-Ge-LT1"/>
                                     <exclude reference="O3V-gm-jOj"/>
+                                    <include reference="WQ0-Ge-LT1"/>
+                                    <include reference="vax-h5-cZ5"/>
                                 </mask>
                             </variation>
                         </view>
@@ -84,7 +84,7 @@
                                 </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-sa-2oD">
@@ -100,7 +100,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yq3-gG-tzA">
                             <rect key="frame" x="24" y="158" width="80" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6p-gG-CdH">
@@ -117,14 +117,14 @@
                             <state key="normal" title="Button"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="xPp-NM-hdu"/>
                                     <exclude reference="9D8-ed-r0y"/>
+                                    <exclude reference="xPp-NM-hdu"/>
                                 </mask>
                             </variation>
                             <variation key="widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="xPp-NM-hdu"/>
                                     <include reference="9D8-ed-r0y"/>
+                                    <include reference="xPp-NM-hdu"/>
                                 </mask>
                             </variation>
                             <connections>
@@ -273,11 +273,6 @@
                             <exclude reference="IKL-5G-Dq0"/>
                             <exclude reference="Puh-iA-2H4"/>
                             <exclude reference="Gvf-bT-FFg"/>
-                            <exclude reference="2UY-no-dZk"/>
-                            <exclude reference="Eh0-k4-HMx"/>
-                            <exclude reference="cnX-89-5Jo"/>
-                            <exclude reference="sq7-vp-YJ8"/>
-                            <exclude reference="y30-v4-9IF"/>
                             <exclude reference="0fy-g6-MV7"/>
                             <exclude reference="3ds-25-jNf"/>
                             <exclude reference="88b-Kf-NFc"/>
@@ -285,6 +280,11 @@
                             <exclude reference="brr-Dq-6iw"/>
                             <exclude reference="r9u-Sp-sJA"/>
                             <exclude reference="wmw-45-L46"/>
+                            <exclude reference="2UY-no-dZk"/>
+                            <exclude reference="Eh0-k4-HMx"/>
+                            <exclude reference="cnX-89-5Jo"/>
+                            <exclude reference="sq7-vp-YJ8"/>
+                            <exclude reference="y30-v4-9IF"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -299,11 +299,6 @@
                             <include reference="IKL-5G-Dq0"/>
                             <include reference="Puh-iA-2H4"/>
                             <include reference="Gvf-bT-FFg"/>
-                            <exclude reference="2UY-no-dZk"/>
-                            <include reference="Eh0-k4-HMx"/>
-                            <exclude reference="cnX-89-5Jo"/>
-                            <include reference="sq7-vp-YJ8"/>
-                            <include reference="y30-v4-9IF"/>
                             <include reference="0fy-g6-MV7"/>
                             <include reference="3ds-25-jNf"/>
                             <include reference="88b-Kf-NFc"/>
@@ -311,6 +306,11 @@
                             <exclude reference="brr-Dq-6iw"/>
                             <include reference="r9u-Sp-sJA"/>
                             <include reference="wmw-45-L46"/>
+                            <exclude reference="2UY-no-dZk"/>
+                            <include reference="Eh0-k4-HMx"/>
+                            <exclude reference="cnX-89-5Jo"/>
+                            <include reference="sq7-vp-YJ8"/>
+                            <include reference="y30-v4-9IF"/>
                         </mask>
                     </variation>
                 </view>

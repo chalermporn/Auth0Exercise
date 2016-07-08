@@ -20,23 +20,7 @@ module.exports = CustomLoginView;
 class ReactNativeExampleApp extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <TouchableHighlight
-    	  style={styles.button}
-          onPress={this.buttonClicked}>
-          <View>
-            <Text style={styles.buttonText}>Please tap me!</Text>
-          </View>
-        </TouchableHighlight>
-        <CustomLoginView style={{width: 300, height: 400, backgroundColor: 'lightgray'}}/>
-      </View>
+      <CustomLoginView style={{flex: 1, backgroundColor: 'lightgray'}}/>
     );
   }
   buttonClicked(event) {

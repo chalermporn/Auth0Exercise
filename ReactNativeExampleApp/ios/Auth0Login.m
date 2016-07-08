@@ -40,46 +40,80 @@
   if (self) {
     WWUtil* util = [WWUtil sharedInstance];
     
-    self.headerContainer.frame = CGRectMake(0, 0, 100, 100);
-    [self addSubview:self.headerContainer];
-    
+    self.wholeViewContainer = [UIView new];
     self.wholeViewContainer.backgroundColor = [UIColor whiteColor];
+    self.headerContainer = [UIView new];
     self.headerContainer.backgroundColor = [UIColor grayColorDarkBackground];
+    self.headerImage = [UIImageView new];
+    [self.headerImage setImage:[UIImage imageNamed:@"Auth0Badge"]];
+    self.headerText = [UILabel new];
     self.headerText.text = NSLocalizedString(@"Welcome! Please log in.", nil);
     self.headerText.textColor = [UIColor whiteColor];
     self.headerText.font = [util currentMainFontWithSize:14];
+    self.usernameLabel = [UILabel new];
     self.usernameLabel.text = NSLocalizedString(@"Username", nil);
     self.usernameLabel.textColor = [UIColor blackColorText];
     self.usernameLabel.font = [util currentMainFontWithSize:14];
+    self.usernameLabel.textAlignment = NSTextAlignmentRight;
+    self.passwordLabel = [UILabel new];
     self.passwordLabel.text = NSLocalizedString(@"Password", nil);
     self.passwordLabel.textColor = [UIColor blackColorText];
     self.passwordLabel.font = [util currentMainFontWithSize:14];
+    self.passwordLabel.textAlignment = NSTextAlignmentRight;
+    self.usernameField = [UITextField new];
     self.usernameField.delegate = self;
     self.usernameField.font = [util currentMainFontWithSize:14];
+    self.usernameField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passwordField = [UITextField new];
     self.passwordField.delegate = self;
     self.passwordField.font = [util currentMainFontWithSize:14];
+    self.passwordField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passwordField.secureTextEntry = YES;
+    self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.sendButton setTitle:NSLocalizedString(@"SUBMIT", nil) forState:UIControlStateNormal];
     self.sendButton.backgroundColor = [UIColor redColorSuccess];
     [self.sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.sendButton.titleLabel.font = [util currentBoldFontWithSize:14];
     self.sendButton.layer.cornerRadius = 3;
+    self.footerLine = [UIView new];
     self.footerLine.backgroundColor = [UIColor grayColorLightText];
+    self.rightFooterButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightFooterButton setTitle:NSLocalizedString(@"RECOLOR!", nil) forState:UIControlStateNormal];
     self.rightFooterButton.backgroundColor = [UIColor blueColorPrimary];
     [self.rightFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.rightFooterButton.titleLabel.font = [util currentBoldFontWithSize:14];
     self.rightFooterButton.layer.cornerRadius = 3;
+    [self.rightFooterButton addTarget:self action:@selector(rightFooterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.leftFooterButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.leftFooterButton setTitle:NSLocalizedString(@"RESIZE!", nil) forState:UIControlStateNormal];
     self.leftFooterButton.backgroundColor = [UIColor blueColorPrimary];
     [self.leftFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.leftFooterButton.titleLabel.font = [util currentBoldFontWithSize:14];
     self.leftFooterButton.layer.cornerRadius = 3;
+    [self.leftFooterButton addTarget:self action:@selector(leftFooterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.passwordlessButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.passwordlessButton setTitle:NSLocalizedString(@"Or, tap here to go PASSWORDLESS -- just enter your email to sign up or log in.", nil) forState:UIControlStateNormal];
     self.passwordlessButton.backgroundColor = [UIColor redColorSuccess];
     [self.passwordlessButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.passwordlessButton.titleLabel.font = [util currentBoldFontWithSize:14];
     self.passwordlessButton.layer.cornerRadius = 3;
     [self.passwordlessButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    self.passwordlessButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [self.passwordlessButton addTarget:self action:@selector(passwordlessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self addSubview:self.wholeViewContainer];
+    [self.wholeViewContainer addSubview:self.headerContainer];
+    [self.headerContainer addSubview:self.headerImage];
+    [self.headerContainer addSubview:self.headerText];
+    [self.wholeViewContainer addSubview:self.usernameLabel];
+    [self.wholeViewContainer addSubview:self.usernameField];
+    [self.wholeViewContainer addSubview:self.passwordLabel];
+    [self.wholeViewContainer addSubview:self.passwordField];
+    [self.wholeViewContainer addSubview:self.sendButton];
+    [self.wholeViewContainer addSubview:self.footerLine];
+    [self.wholeViewContainer addSubview:self.rightFooterButton];
+    [self.wholeViewContainer addSubview:self.leftFooterButton];
+    [self.wholeViewContainer addSubview:self.passwordlessButton];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard:)];
@@ -91,8 +125,22 @@
   return self;
 }
 
-- (void)awakeFromNib {
-
+- (void)layoutSubviews {
+  //sure don't miss manual layouts
+  self.wholeViewContainer.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+  self.headerContainer.frame = CGRectMake(0, 20, CGRectGetWidth(self.frame), 80);
+  self.headerImage.frame = CGRectMake(36, 24, 28, 32);
+  self.headerText.frame = CGRectMake(36+28+12, 24, 200, 32);
+  self.usernameLabel.frame = CGRectMake(24, CGRectGetMaxY(self.headerContainer.frame)+24, 72, 30);
+  self.passwordLabel.frame = CGRectMake(24, CGRectGetMaxY(self.usernameLabel.frame)+12, 72, 30);
+  self.usernameField.frame = CGRectMake(CGRectGetMaxX(self.usernameLabel.frame)+18, CGRectGetMaxY(self.headerContainer.frame)+24, CGRectGetWidth(self.frame)-24-24-18-CGRectGetWidth(self.usernameLabel.frame), 30);
+  self.passwordField.frame = CGRectMake(CGRectGetMaxX(self.usernameLabel.frame)+18, CGRectGetMaxY(self.usernameField.frame)+12, CGRectGetWidth(self.frame)-24-24-18-CGRectGetWidth(self.usernameLabel.frame), 30);
+  self.sendButton.frame = CGRectMake(CGRectGetWidth(self.frame)-80-24, CGRectGetMaxY(self.passwordField.frame)+12, 80, 34);
+  
+  self.rightFooterButton.frame = CGRectMake(CGRectGetWidth(self.frame)-90-24, CGRectGetMaxY(self.frame)-20-34, 90, 34);
+  self.leftFooterButton.frame = CGRectMake(CGRectGetWidth(self.frame)-90-24-8-90, CGRectGetMaxY(self.frame)-20-34, 90, 34);
+  self.footerLine.frame = CGRectMake(24, CGRectGetMinY(self.rightFooterButton.frame)-8, CGRectGetWidth(self.frame)-24-24, 1);
+  self.passwordlessButton.frame = CGRectMake((CGRectGetWidth(self.frame)-200)/2, CGRectGetMinY(self.footerLine.frame)-36-100, 200, 100);
 }
 
 - (IBAction)sendButtonTapped:(id)sender {
@@ -170,6 +218,7 @@
 
 - (IBAction)passwordlessButtonTapped:(id)sender {
     self.sendButtonYConstraint.constant = 0-CGRectGetHeight(self.passwordField.frame);
+    self.sendButton.frame = CGRectMake(CGRectGetWidth(self.frame)-80-24, CGRectGetMaxY(self.passwordField.frame)+12-30, 80, 34);
     
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^() {
         self.usernameLabel.text = NSLocalizedString(@"Email", nil);
@@ -261,6 +310,7 @@
         self.passwordLabel.alpha = 1;
         self.passwordField.alpha = 1;
         self.sendButtonYConstraint.constant = 12;
+        self.sendButton.frame = CGRectMake(CGRectGetWidth(self.frame)-80-24, CGRectGetMaxY(self.passwordField.frame)+12, 80, 34);
         self.passwordlessButton.alpha = 1;
         self.headerText.text = NSLocalizedString(@"Welcome! Please log in.", nil);
         self.usernameField.returnKeyType = UIReturnKeyNext;
