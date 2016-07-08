@@ -75,6 +75,7 @@
     [self.sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.sendButton.titleLabel.font = [util currentBoldFontWithSize:14];
     self.sendButton.layer.cornerRadius = 3;
+    [self.sendButton addTarget:self action:@selector(sendButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.footerLine = [UIView new];
     self.footerLine.backgroundColor = [UIColor grayColorLightText];
     self.rightFooterButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -213,7 +214,7 @@
 
 - (void) displayMessage:(NSString*)message {
     self.alertController.message = message;
-    [self.parentVC showViewController:self.alertController sender:self];
+    [self.window.rootViewController showViewController:self.alertController sender:self];
 }
 
 - (IBAction)passwordlessButtonTapped:(id)sender {

@@ -23,9 +23,6 @@ class ReactNativeExampleApp extends Component {
       <CustomLoginView style={{flex: 1, backgroundColor: 'lightgray'}}/>
     );
   }
-  buttonClicked(event) {
-    console.log('button clicked');
-  }
 }
 
 const styles = StyleSheet.create({
