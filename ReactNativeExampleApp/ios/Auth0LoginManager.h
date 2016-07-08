@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RCTViewManager.h"
 
-@interface RCTLoginManager : RCTViewManager
+@interface Auth0LoginManager : RCTViewManager
 
 @end

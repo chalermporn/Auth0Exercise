@@ -6,13 +6,12 @@
 //  Copyright © 2016 Weien Wang. All rights reserved.
 //
 
-#import "RCTLoginManager.h"
+#import "Auth0LoginManager.h"
 #import "Auth0Login.h"
 
-@implementation RCTLoginManager
+@implementation Auth0LoginManager
 
 RCT_EXPORT_MODULE()
-
 - (UIView *)view {
     return [[Auth0Login alloc] init];
 }
