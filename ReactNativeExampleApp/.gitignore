@@ -32,6 +32,8 @@ local.properties
 # node.js
 #
 node_modules/
+!node_modules/react-native/Libraries
+!node_modules/react-native/React
 npm-debug.log
 
 # BUCK
