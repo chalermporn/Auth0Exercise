@@ -14,6 +14,7 @@ import {
   requireNativeComponent
 } from 'react-native';
 
+//Big thanks to http://almostobsolete.net/react-native/custom-ios-views-with-react-native.html
 var CustomLoginView = requireNativeComponent('Auth0Login', null);
 module.exports = CustomLoginView;
 
